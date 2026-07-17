@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Twitter, ArrowUpRight } from "lucide-react";
 import { NAV_LINKS } from "../../config/navigation.js";
-import images from "../../assets/images/index.js";
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -41,7 +40,15 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1.2fr] gap-14">
           <div>
-            <img src={images.logo} alt="Melt House" className="h-16 w-auto mb-7 brightness-0 invert opacity-90" />
+            <div className="mb-7 inline-flex overflow-hidden rounded-[14px] bg-[#F8F2EA] p-2 shadow-[0_2px_12px_rgba(0,0,0,0.18)]">
+              <img
+                src="/favicon.png"
+                alt="Melt House"
+                width={56}
+                height={56}
+                className="h-14 w-14 object-contain"
+              />
+            </div>
             <p className="text-cream/55 font-light leading-relaxed max-w-xs">
               Handmade cookies, baked in small batches every morning. A quiet corner for warm
               butter, real chocolate, and a little happiness.
@@ -97,6 +104,7 @@ export default function Footer() {
 
         <div className="mt-20 pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream/40 tracking-wide">
           <p>&copy; {new Date().getFullYear()} Melt House. All rights reserved.</p>
+          <p className="text-cream/45">Crafted by Vertex Studio</p>
           <p className="italic font-display text-sm text-cream/50">Freshly Baked Happiness — Every Single Day.</p>
         </div>
       </div>
