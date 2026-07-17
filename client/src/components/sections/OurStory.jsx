@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import SectionHeading from "../ui/SectionHeading.jsx";
-import LazyImage from "../ui/LazyImage.jsx";
 import images from "../../assets/images/index.js";
 
 const EASE = [0.16, 1, 0.3, 1];
@@ -11,17 +10,23 @@ export default function OurStory() {
       <div className="mx-auto max-w-content px-6 sm:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-14 items-center">
           <motion.div
-            initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
-            whileInView={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 1.1, ease: EASE }}
+            transition={{ duration: 0.9, ease: EASE }}
             className="lg:col-span-7 relative"
           >
-            <LazyImage
-              src={images.apron}
-              alt="A Melt House baker arranging freshly baked cookies on a marble counter, bathed in warm afternoon light"
-              className="aspect-[5/6] sm:aspect-[4/5] rounded-sm"
-            />
+            <div className="aspect-[5/6] sm:aspect-[4/5] overflow-hidden rounded-sm bg-cream-deep">
+              <img
+                src={images.apron}
+                alt="A Melt House baker arranging freshly baked cookies on a marble counter, bathed in warm afternoon light"
+                width={1536}
+                height={1024}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
+            </div>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}

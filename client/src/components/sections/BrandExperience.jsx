@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import LazyImage from "../ui/LazyImage.jsx";
 import images from "../../assets/images/index.js";
 
 const EASE = [0.16, 1, 0.3, 1];
@@ -18,17 +17,23 @@ export default function BrandExperience() {
     <section id="brand-experience" className="relative bg-cream overflow-hidden">
       <div className="relative grid grid-cols-1 lg:grid-cols-2 items-stretch">
         <motion.div
-          initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
-          whileInView={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1.1, ease: EASE }}
+          transition={{ duration: 0.9, ease: EASE }}
           className="relative min-h-[440px] lg:min-h-[620px]"
         >
-          <LazyImage
-            src={images.bag}
-            alt="A guest holding a warm Melt House cookie fresh from a paper bag, wearing a Melt House branded t-shirt"
-            className="absolute inset-0 h-full w-full"
-          />
+          <div className="h-full min-h-[440px] lg:min-h-[620px] w-full overflow-hidden bg-cream-deep">
+            <img
+              src={images.bag}
+              alt="A guest holding a warm Melt House cookie fresh from a paper bag, wearing a Melt House branded t-shirt"
+              width={1122}
+              height={1402}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
+          </div>
         </motion.div>
 
         <div className="relative flex flex-col justify-center bg-espresso text-cream px-6 sm:px-14 lg:px-20 py-24 sm:py-28">
