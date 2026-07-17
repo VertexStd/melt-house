@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-feature-settings: "ss01" 1;
+}
+
+/* Visible keyboard focus, brand-colored */
+:focus-visible {
+  outline: 2px solid #C1793B;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background-color: #C1793B;
+  color: #F7EFE1;
+}
+
+/* Subtle film-grain overlay used on dark sections */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: theme("backgroundImage.grain");
+}
+
+/* Eyebrow label styling shared across sections */
+.eyebrow {
+  font-family: theme("fontFamily.body");
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: theme("letterSpacing.widest2");
+  text-transform: uppercase;
+}
+
+/* Thin brand hairline rule used to flank eyebrows, echoes packaging typography */
+.hairline {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+/* Custom slim scrollbar in brand tones */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F7EFE1;
+}
+::-webkit-scrollbar-thumb {
+  background: #C1793B;
+  border-radius: 999px;
+  border: 2px solid #F7EFE1;
+}
