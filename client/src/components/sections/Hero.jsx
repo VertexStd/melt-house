@@ -40,59 +40,63 @@ export default function Hero() {
     offset: ["start start", "end start"]
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.55, 0.85]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.58, 0.82]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
   return (
     <section
       ref={sectionRef}
       id="home"
+      aria-label="Welcome to Melt House"
       className="relative h-[100svh] min-h-[680px] w-full overflow-hidden"
     >
-      <motion.div style={{ y: imageY }} className="absolute inset-0 scale-[1.12]">
+      <motion.div style={{ y: imageY }} className="absolute inset-0 scale-[1.08]">
         <img
           src={images.hero}
           alt="Warm interior of the Melt House cookie counter at golden hour, pastry case glowing with fresh bakes"
-          className="h-full w-full object-cover"
+          width={1920}
+          height={1280}
+          className="h-full w-full object-cover object-center"
           fetchPriority="high"
+          decoding="async"
         />
       </motion.div>
       <motion.div
         style={{ opacity: overlayOpacity }}
-        className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/40 to-espresso/15"
+        className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/45 to-espresso/20"
+        aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-espresso/10" />
+      <div className="absolute inset-0 bg-espresso/[0.07]" aria-hidden="true" />
 
-      {/* Floating accent element — subtle, brand-toned */}
       <motion.div
         aria-hidden="true"
-        animate={{ y: [0, -14, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="hidden lg:flex absolute top-[22%] right-[9%] z-10 items-center justify-center w-24 h-24 rounded-full border border-cream/25 bg-cream/5 backdrop-blur-sm"
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        className="hidden lg:flex absolute top-[24%] right-[8%] xl:right-[10%] z-10 items-center justify-center w-[5.5rem] h-[5.5rem] rounded-full border border-cream/15 bg-cream/[0.04] backdrop-blur-[2px] opacity-60"
       >
-        <span className="font-display italic text-cream/80 text-sm text-center leading-tight px-3">
+        <span className="font-display italic text-cream/70 text-[0.8125rem] text-center leading-snug px-3">
           Est. 2019
         </span>
       </motion.div>
 
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
-        className="relative z-10 flex h-full flex-col justify-end px-6 sm:px-10 pb-24 sm:pb-28"
+        className="relative z-10 flex h-full flex-col justify-end px-6 sm:px-10 pb-20 sm:pb-24 lg:pb-28"
       >
         <div className="mx-auto w-full max-w-content">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE, delay: 0.2 }}
-            className="flex items-center gap-3 mb-7"
+            className="flex items-center gap-2.5 mb-5 sm:mb-6"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-caramel-light" />
+            <span className="w-1.5 h-1.5 rounded-full bg-caramel-light" aria-hidden="true" />
             <span className="eyebrow text-caramel-light">A House of Handmade Cookies</span>
           </motion.div>
 
-          <h1 className="font-display font-medium text-cream text-[15vw] sm:text-7xl md:text-8xl lg:text-[6.5rem] leading-[0.98] max-w-4xl">
+          <h1 className="font-display font-medium text-cream text-[clamp(2.75rem,8vw,6.5rem)] leading-display tracking-[-0.02em] max-w-4xl">
             <AnimatedWords text={HEADLINE_LINE_1} delayStart={0.3} />
             <br />
             <span className="italic font-light text-caramel-light">
@@ -104,7 +108,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: EASE, delay: 1.05 }}
-            className="mt-9 max-w-md text-cream/80 text-base sm:text-lg font-light leading-relaxed"
+            className="mt-6 sm:mt-8 max-w-prose text-cream/85 text-base sm:text-lg font-light leading-prose"
           >
             Small-batch cookies, baked every morning from real butter and real chocolate —
             in a house built for slowing down.
@@ -114,7 +118,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: EASE, delay: 1.25 }}
-            className="mt-11 flex flex-wrap items-center gap-5"
+            className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4"
           >
             <Button href="#story" variant="inverted">
               Explore Our Story
@@ -132,13 +136,14 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.5 }}
-        className="absolute bottom-8 right-6 sm:right-10 z-10 flex items-center gap-2 text-cream/70 hover:text-cream transition-colors"
+        className="absolute bottom-7 right-6 sm:right-10 z-10 flex items-center gap-2 text-cream/55 hover:text-cream/90 transition-colors duration-400 ease-melt focus-visible:outline-caramel"
       >
         <span className="eyebrow hidden sm:inline">Scroll</span>
         <motion.span
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex items-center justify-center w-9 h-9 rounded-full border border-cream/40"
+          animate={{ y: [0, 4, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          className="flex items-center justify-center w-9 h-9 rounded-full border border-cream/30"
+          aria-hidden="true"
         >
           <ArrowDown size={15} strokeWidth={1.6} />
         </motion.span>

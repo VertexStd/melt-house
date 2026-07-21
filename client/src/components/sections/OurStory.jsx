@@ -6,7 +6,7 @@ const EASE = [0.16, 1, 0.3, 1];
 
 export default function OurStory() {
   return (
-    <section id="story" className="relative bg-cream py-28 sm:py-40">
+    <section id="story" className="relative bg-cream py-section sm:py-section-lg">
       <div className="mx-auto max-w-content px-6 sm:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-14 items-center">
           <motion.div
@@ -16,7 +16,7 @@ export default function OurStory() {
             transition={{ duration: 0.9, ease: EASE }}
             className="lg:col-span-7 relative"
           >
-            <div className="aspect-[5/6] sm:aspect-[4/5] overflow-hidden rounded-sm bg-cream-deep">
+            <div className="aspect-[5/6] sm:aspect-[4/5] overflow-hidden rounded-image bg-cream-deep">
               <img
                 src={images.apron}
                 alt="A Melt House baker arranging freshly baked cookies on a marble counter, bathed in warm afternoon light"
@@ -51,7 +51,7 @@ export default function OurStory() {
               </p>
             </blockquote>
 
-            <div className="space-y-5 text-espresso/65 font-light leading-relaxed max-w-xl">
+            <div className="space-y-5 text-espresso/65 font-light leading-prose max-w-prose">
               <p>
                 Melt House began as a single home oven and a recipe that refused to be rushed —
                 slow-creamed butter, real chocolate, and a two-day rest for every batch of dough.

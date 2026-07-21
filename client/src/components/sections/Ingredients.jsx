@@ -29,7 +29,7 @@ const POINTS = [
 
 export default function Ingredients() {
   return (
-    <section id="ingredients" className="relative bg-cream-soft py-28 sm:py-40">
+    <section id="ingredients" className="relative bg-cream-soft py-section sm:py-section-lg">
       <div className="mx-auto max-w-content px-6 sm:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-14 items-start">
           <motion.div
@@ -40,17 +40,17 @@ export default function Ingredients() {
             className="lg:col-span-5 lg:sticky lg:top-32"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-caramel inline-block mb-6" />
-            <h2 className="font-display font-medium text-5xl sm:text-6xl leading-[1.05] text-espresso mb-6 max-w-md">
+            <h2 className="font-display font-medium text-[clamp(2.25rem,5vw,3.75rem)] leading-display tracking-[-0.02em] text-espresso mb-6 max-w-md">
               What goes in, matters as much as what comes out.
             </h2>
-            <p className="text-espresso/60 font-light leading-relaxed max-w-sm mb-10">
+            <p className="text-espresso/60 font-light leading-prose max-w-prose mb-10">
               Every Melt House cookie is built on four quiet promises — the kind you won&apos;t see on
               the box, but will always taste in the bite.
             </p>
             <LazyImage
               src={images.vibe}
               alt="A stack of Melt House cookies beside a latte, dusted with chocolate"
-              className="aspect-[4/5] rounded-sm hidden lg:block"
+              className="aspect-[4/5] rounded-image hidden lg:block"
             />
           </motion.div>
 
@@ -71,7 +71,7 @@ export default function Ingredients() {
                   <h3 className="font-display text-2xl sm:text-3xl text-espresso mb-2.5 transition-colors duration-300 group-hover:text-caramel">
                     {point.title}
                   </h3>
-                  <p className="text-espresso/60 font-light leading-relaxed max-w-lg">
+                  <p className="text-espresso/60 font-light leading-prose max-w-prose">
                     {point.description}
                   </p>
                 </div>

@@ -29,7 +29,7 @@ export default function Gallery() {
   const next = useCallback(() => setActiveIndex((i) => (i + 1) % GALLERY_ITEMS.length), []);
 
   return (
-    <section id="gallery" className="relative bg-cream py-28 sm:py-40">
+    <section id="gallery" className="relative bg-cream py-section sm:py-section-lg">
       <div className="mx-auto max-w-content px-6 sm:px-10">
         <SectionHeading
           eyebrow="Gallery"
@@ -48,7 +48,7 @@ export default function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.6, ease: EASE, delay: (i % 3) * 0.08 }}
-              className="group relative mb-4 sm:mb-5 block w-full overflow-hidden rounded-sm break-inside-avoid text-left focus-visible:outline-caramel"
+              className="group relative mb-4 sm:mb-5 block w-full overflow-hidden rounded-image break-inside-avoid text-left focus-visible:outline-caramel"
               aria-label={`Open larger preview: ${item.caption}`}
             >
               <LazyImage

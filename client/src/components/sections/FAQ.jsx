@@ -34,7 +34,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faqs" className="relative bg-cream-soft py-28 sm:py-40">
+    <section id="faqs" className="relative bg-cream-soft py-section sm:py-section-lg">
       <div className="mx-auto max-w-content px-6 sm:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-4 lg:sticky lg:top-32 self-start">

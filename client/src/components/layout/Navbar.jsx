@@ -8,6 +8,11 @@ import logoNav2x from "../../assets/images/logo-nav@2x.png";
 
 const EASE = [0.16, 1, 0.3, 1];
 
+const navLinkClass = (solid) =>
+  `group relative eyebrow pb-1 transition-all duration-400 ease-melt ${
+    solid ? "text-espresso hover:text-caramel" : "text-cream/90 hover:text-caramel-light"
+  }`;
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -36,13 +41,15 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-melt ${
-        solid ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(44,26,16,0.07)]" : "bg-transparent"
+        solid
+          ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(44,26,16,0.06)]"
+          : "bg-transparent"
       }`}
     >
       <nav
         aria-label="Primary"
         className={`mx-auto flex max-w-content items-center justify-between px-6 sm:px-10 transition-all duration-500 ease-melt ${
-          solid ? "py-3" : "py-6"
+          solid ? "py-2.5" : "py-5"
         }`}
       >
         <Link
@@ -51,14 +58,14 @@ export default function Navbar() {
           aria-label="Melt House home"
         >
           <motion.div
-            animate={{ height: solid ? 40 : 52 }}
+            animate={{ height: solid ? 36 : 47 }}
             transition={{ duration: 0.5, ease: EASE }}
-            className="flex items-center justify-center overflow-hidden rounded-[15px] bg-[#F8F2EA] px-2.5 shadow-[0_3px_18px_rgba(44,26,16,0.08),0_1px_4px_rgba(44,26,16,0.04)] ring-1 ring-espresso/[0.04] transition-transform duration-200 ease-out will-change-transform transform-gpu group-hover:scale-[1.03] group-focus-visible:scale-[1.03]"
+            className="flex items-center justify-center overflow-hidden rounded-[14px] bg-[#F8F2EA] px-2 shadow-[0_2px_14px_rgba(44,26,16,0.07),0_1px_3px_rgba(44,26,16,0.04)] ring-1 ring-espresso/[0.04] transition-transform duration-200 ease-out will-change-transform transform-gpu group-hover:scale-[1.03] group-focus-visible:scale-[1.03]"
           >
             <img
               src={logoNav}
               srcSet={`${logoNav} 1x, ${logoNav2x} 2x`}
-              sizes="68px"
+              sizes="61px"
               alt="Melt House"
               width={133}
               height={104}
@@ -69,20 +76,16 @@ export default function Navbar() {
           </motion.div>
         </Link>
 
-        <ul className="hidden md:flex items-center gap-11">
+        <ul className="hidden md:flex items-center gap-8 lg:gap-9">
           {NAV_LINKS.map((link) => (
             <li key={link.label}>
-              <Link
-                to={link.href}
-                className={`group relative eyebrow pb-1 transition-colors duration-300 ${
-                  solid ? "text-espresso hover:text-caramel" : "text-cream hover:text-caramel-light"
-                }`}
-              >
+              <Link to={link.href} className={navLinkClass(solid)}>
                 {link.label}
                 <span
                   className={`absolute left-0 -bottom-0.5 h-px w-0 group-hover:w-full transition-all duration-400 ease-melt ${
                     solid ? "bg-caramel" : "bg-caramel-light"
                   }`}
+                  aria-hidden="true"
                 />
               </Link>
             </li>
@@ -91,10 +94,10 @@ export default function Navbar() {
 
         <Link
           to="/#visit"
-          className={`hidden md:inline-flex items-center rounded-full border px-6 py-2.5 text-sm tracking-wide transition-colors duration-300 ${
+          className={`hidden md:inline-flex items-center rounded-full border px-5 py-2 text-sm tracking-[0.02em] transition-all duration-400 ease-melt hover:scale-[1.02] focus-visible:outline-caramel ${
             solid
-              ? "border-espresso text-espresso hover:bg-espresso hover:text-cream"
-              : "border-cream text-cream hover:bg-cream hover:text-espresso"
+              ? "border-espresso/80 text-espresso hover:bg-espresso hover:text-cream hover:shadow-[0_4px_16px_-4px_rgba(44,26,16,0.25)]"
+              : "border-cream/80 text-cream hover:bg-cream hover:text-espresso hover:shadow-[0_4px_16px_-4px_rgba(0,0,0,0.2)]"
           }`}
         >
           Visit Us
@@ -105,7 +108,7 @@ export default function Navbar() {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className={`md:hidden flex items-center justify-center w-10 h-10 rounded-full border transition-colors ${
+          className={`md:hidden flex items-center justify-center w-10 h-10 rounded-full border transition-all duration-400 ease-melt focus-visible:outline-caramel ${
             solid ? "border-espresso text-espresso" : "border-cream text-cream"
           }`}
         >
@@ -132,7 +135,7 @@ export default function Navbar() {
                 >
                   <Link
                     to={link.href}
-                    className="block py-3 font-display text-3xl text-espresso hover:text-caramel transition-colors"
+                    className="block py-3 font-display text-3xl text-espresso hover:text-caramel transition-colors duration-400 ease-melt focus-visible:outline-caramel"
                   >
                     {link.label}
                   </Link>
@@ -141,7 +144,7 @@ export default function Navbar() {
               <li className="pt-4">
                 <Link
                   to="/#visit"
-                  className="inline-flex items-center rounded-full border border-espresso px-6 py-2.5 text-sm tracking-wide text-espresso"
+                  className="inline-flex items-center rounded-full border border-espresso px-6 py-2.5 text-sm tracking-[0.02em] text-espresso transition-all duration-400 ease-melt hover:scale-[1.02] focus-visible:outline-caramel"
                 >
                   Visit Us
                 </Link>

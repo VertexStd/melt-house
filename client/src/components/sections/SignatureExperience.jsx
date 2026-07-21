@@ -28,7 +28,7 @@ export default function SignatureExperience() {
   return (
     <section id="experience" className="relative bg-espresso text-cream">
       <DripDivider tone="cream" />
-      <div className="grain relative mx-auto max-w-content px-6 sm:px-10 pt-6 pb-28 sm:pb-36">
+      <div className="grain relative mx-auto max-w-content px-6 sm:px-10 pt-6 pb-section sm:pb-section-lg">
         <SectionHeading
           eyebrow="Signature Experience"
           title="Three things we never negotiate on."

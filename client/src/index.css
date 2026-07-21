@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -22,6 +23,9 @@ html {
 
 body {
   font-feature-settings: "ss01" 1;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Visible keyboard focus, brand-colored */
@@ -49,9 +53,13 @@ body {
 .eyebrow {
   font-family: theme("fontFamily.body");
   font-weight: 500;
-  font-size: 0.72rem;
-  letter-spacing: theme("letterSpacing.widest2");
+  font-size: 0.6875rem;
+  letter-spacing: theme("letterSpacing.eyebrow");
   text-transform: uppercase;
+}
+
+.prose-width {
+  max-width: theme("maxWidth.prose");
 }
 
 /* Thin brand hairline rule used to flank eyebrows, echoes packaging typography */

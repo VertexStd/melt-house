@@ -38,10 +38,10 @@ export default function BrandExperience() {
 
         <div className="relative flex flex-col justify-center bg-espresso text-cream px-6 sm:px-14 lg:px-20 py-24 sm:py-28">
           <span className="w-1.5 h-1.5 rounded-full bg-caramel-light mb-6" />
-          <h2 className="font-display font-medium text-5xl sm:text-6xl leading-[1.05] max-w-md mb-7">
+          <h2 className="font-display font-medium text-[clamp(2.25rem,5vw,3.75rem)] leading-display tracking-[-0.02em] max-w-md mb-6">
             Every detail, wrapped in the same warmth.
           </h2>
-          <p className="text-cream/65 font-light leading-relaxed max-w-md mb-12">
+          <p className="text-cream/65 font-light leading-prose max-w-prose mb-10">
             From the tissue in your box to the apron on our bakers, Melt House is built as one
             continuous feeling — not a logo stamped on at the end.
           </p>

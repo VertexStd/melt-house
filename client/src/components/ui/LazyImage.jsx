@@ -1,9 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 
-/**
- * Native lazy-loaded image with a soft fade-in once decoded,
- * plus a warm placeholder tone so nothing pops in on a hard edge.
- */
 export default function LazyImage({ src, alt, className = "", imgClassName = "", ...props }) {
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -19,9 +15,15 @@ export default function LazyImage({ src, alt, className = "", imgClassName = "",
     setFailed(false);
 
     const img = imgRef.current;
-    if (img?.complete && img.naturalWidth > 0) {
-      markLoaded();
-    }
+    const checkComplete = () => {
+      if (img?.complete && img.naturalWidth > 0) {
+        markLoaded();
+      }
+    };
+
+    checkComplete();
+    const frame = requestAnimationFrame(checkComplete);
+    return () => cancelAnimationFrame(frame);
   }, [src, markLoaded]);
 
   return (
@@ -34,8 +36,8 @@ export default function LazyImage({ src, alt, className = "", imgClassName = "",
         decoding="async"
         onLoad={markLoaded}
         onError={() => setFailed(true)}
-        className={`h-full w-full object-cover transition-all duration-[900ms] ease-melt ${
-          loaded || failed ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-105 blur-sm"
+        className={`h-full w-full object-cover transition-[opacity,transform,filter] duration-700 ease-melt ${
+          loaded || failed ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-[1.02] blur-[2px]"
         } ${imgClassName}`}
         {...props}
       />

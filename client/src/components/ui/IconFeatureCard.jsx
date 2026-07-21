@@ -17,8 +17,8 @@ export default function IconFeatureCard({ icon: Icon, title, description, index 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.7, ease: EASE, delay: index * 0.1 }}
-      whileHover={{ y: -6 }}
-      className={`group relative flex flex-col items-start rounded-2xl px-8 py-10 sm:py-12 transition-shadow duration-500 ease-melt ${
+      whileHover={{ y: -4 }}
+      className={`group relative flex flex-col items-start rounded-2xl px-8 py-10 sm:py-12 transition-all duration-400 ease-melt ${
         isDark
           ? "bg-cream/[0.04] border border-cream/10 backdrop-blur-sm hover:bg-cream/[0.07] hover:border-caramel-light/30"
           : "bg-white/60 border border-espresso/8 backdrop-blur-sm shadow-[0_1px_2px_rgba(44,26,16,0.04)] hover:shadow-[0_24px_48px_-16px_rgba(44,26,16,0.18)] hover:border-caramel/30"
@@ -33,10 +33,10 @@ export default function IconFeatureCard({ icon: Icon, title, description, index 
       >
         <Icon size={22} strokeWidth={1.4} />
       </span>
-      <h3 className={`font-display text-2xl sm:text-[1.7rem] mb-3 ${isDark ? "text-cream" : "text-espresso"}`}>
+      <h3 className={`font-display text-2xl sm:text-[1.7rem] leading-display tracking-[-0.01em] mb-3 ${isDark ? "text-cream" : "text-espresso"}`}>
         {title}
       </h3>
-      <p className={`font-light leading-relaxed ${isDark ? "text-cream/60" : "text-espresso/60"}`}>
+      <p className={`font-light leading-prose ${isDark ? "text-cream/60" : "text-espresso/60"}`}>
         {description}
       </p>
     </motion.div>

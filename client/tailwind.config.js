@@ -33,11 +33,24 @@ export default {
         body: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
       },
       letterSpacing: {
-        widest2: "0.24em",
-        widest3: "0.32em"
+        eyebrow: "0.12em",
+        widest2: "0.14em",
+        widest3: "0.22em"
+      },
+      lineHeight: {
+        display: "1.08",
+        prose: "1.75"
       },
       maxWidth: {
-        content: "1400px"
+        content: "1400px",
+        prose: "42rem"
+      },
+      spacing: {
+        section: "7rem",
+        "section-lg": "9rem"
+      },
+      borderRadius: {
+        image: "0.5rem"
       },
       transitionTimingFunction: {
         melt: "cubic-bezier(0.22, 1, 0.36, 1)"

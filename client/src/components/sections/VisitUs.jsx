@@ -30,7 +30,7 @@ const INFO_CARDS = [
 
 export default function VisitUs() {
   return (
-    <section id="visit" className="relative bg-cream py-28 sm:py-40">
+    <section id="visit" className="relative bg-cream py-section sm:py-section-lg">
       <div className="mx-auto max-w-content px-6 sm:px-10">
         <SectionHeading eyebrow="Visit Us" title="Come sit in the warmth for a while." className="mb-16" />
 
@@ -40,7 +40,7 @@ export default function VisitUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: EASE }}
-            className="lg:col-span-7 relative rounded-2xl overflow-hidden min-h-[420px] border border-espresso/10 shadow-[0_1px_2px_rgba(44,26,16,0.05)]"
+            className="lg:col-span-7 relative rounded-image overflow-hidden min-h-[420px] border border-espresso/10 shadow-[0_2px_8px_rgba(44,26,16,0.04)]"
           >
             <iframe
               title="Melt House location on Google Maps"

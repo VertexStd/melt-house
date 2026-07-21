@@ -90,7 +90,7 @@ export default function Lightbox({ items, activeIndex, onClose, onPrev, onNext }
             <img
               src={item.src}
               alt={item.alt}
-              className="max-h-[72vh] w-auto max-w-full object-contain rounded-sm shadow-2xl"
+              className="max-h-[72vh] w-auto max-w-full object-contain rounded-image shadow-2xl"
             />
             <figcaption className="mt-5 eyebrow text-cream/70">{item.caption}</figcaption>
           </motion.figure>
